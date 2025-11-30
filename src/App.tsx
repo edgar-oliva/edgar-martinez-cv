@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, Briefcase, Code2, Sparkles } from 'lucide-react';
+import { Mail, Linkedin, Briefcase, Code2, Sparkles } from 'lucide-react';
 import Navigation from './components/Navigation';
 
 function App() {
