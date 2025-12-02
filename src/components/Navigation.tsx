@@ -32,6 +32,12 @@ const Navigation = () => {
     // Track active section on scroll
     useEffect(() => {
         const handleScroll = () => {
+            // Check if we've reached the bottom of the page
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                setActiveSection(navItems[navItems.length - 1].id);
+                return;
+            }
+
             const sections = navItems.map(item => document.getElementById(item.id));
             const scrollPosition = window.scrollY + 150;
 
@@ -55,7 +61,7 @@ const Navigation = () => {
                     {/* Logo/Name */}
                     <button
                         onClick={() => scrollToSection('about')}
-                        className="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-purple-500 transition-all"
+                        className="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-700 to-slate-700 bg-clip-text text-transparent hover:from-blue-600 hover:to-slate-600 transition-all"
                     >
                         Edgar Martínez
                     </button>

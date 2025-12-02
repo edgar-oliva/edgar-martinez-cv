@@ -1,4 +1,6 @@
-import { Mail, Linkedin, Briefcase, Code2, Sparkles } from 'lucide-react';
+import { Mail, Linkedin, Briefcase, Code2, Sparkles, Download } from 'lucide-react';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import CVDocument from './components/CVDocument';
 import Navigation from './components/Navigation';
 
 function App() {
@@ -49,7 +51,19 @@ function App() {
                                     <Mail className="w-4 h-4" />
                                     <span className="font-medium">Email Me</span>
                                 </a>
-                                <a href="https://www.linkedin.com/in/edgar-mart%C3%ADnez-oliva-1ba46b225/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors">
+                                <PDFDownloadLink
+                                    document={<CVDocument />}
+                                    fileName="Edgar_Martinez_CV.pdf"
+                                    className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                                >
+                                    {({ loading }) => (
+                                        <>
+                                            <Download className="w-4 h-4" />
+                                            <span className="font-medium">{loading ? 'Loading...' : 'Download CV'}</span>
+                                        </>
+                                    )}
+                                </PDFDownloadLink>
+                                <a href="https://www.linkedin.com/in/edgar-mart%C3%ADnez-oliva-1ba46b225/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
                                     <Linkedin className="w-4 h-4" />
                                     <span>LinkedIn</span>
                                 </a>
