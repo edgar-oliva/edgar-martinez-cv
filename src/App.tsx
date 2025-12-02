@@ -54,7 +54,7 @@ function App() {
                                 <PDFDownloadLink
                                     document={<CVDocument />}
                                     fileName="Edgar_Martinez_CV.pdf"
-                                    className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                                 >
                                     {({ loading }) => (
                                         <>
