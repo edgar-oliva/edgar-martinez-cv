@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 
 // Register a standard font (Helvetica is built-in, but we can register others if needed)
 // For now, we'll use Helvetica as it's clean and standard.
