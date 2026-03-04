@@ -114,7 +114,7 @@ const CVDocument = () => (
             {/* Header */}
             <View style={styles.header}>
                 <Text style={styles.name}>Edgar Martínez</Text>
-                <Text style={styles.title}>Marketing Materials Project Manager</Text>
+                <Text style={styles.title}>Demand Planning Executive</Text>
                 <View style={styles.contactRow}>
                     <Text>adrian_0698@hotmail.com</Text>
                 </View>
@@ -124,7 +124,7 @@ const CVDocument = () => (
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Summary</Text>
                 <Text style={styles.summaryText}>
-                    Project manager with a strong background in digital transformation and data solutions, managing end-to-end production of POS marketing materials across digital and print channels for North America.
+                    Demand planning professional with a strong background in data analytics and digital transformation, developing multi-year volume forecasts and scenario simulations for multiple US brands to support strategic decision-making across senior leadership.
                 </Text>
             </View>
 
@@ -144,10 +144,33 @@ const CVDocument = () => (
                 <View style={styles.jobContainer}>
                     <View style={styles.jobHeader}>
                         <View>
+                            <Text style={styles.jobTitle}>Demand Planning Executive</Text>
+                            <Text style={styles.company}>British American Tobacco | Accenture</Text>
+                        </View>
+                        <Text style={styles.date}>Feb 2026 - Current</Text>
+                    </View>
+                    <View style={styles.bulletPoint}>
+                        <Text style={styles.bullet}>•</Text>
+                        <Text style={styles.bulletText}>Develop and manage demand forecasts for multiple US brands, providing insights on product volume behavior from the current year and up to 5 years ahead.</Text>
+                    </View>
+                    <View style={styles.bulletPoint}>
+                        <Text style={styles.bullet}>•</Text>
+                        <Text style={styles.bulletText}>Deliver scenario simulation analyses and strategic insights to Sr Directors across multiple areas and markets to support long-term business planning.</Text>
+                    </View>
+                    <View style={styles.bulletPoint}>
+                        <Text style={styles.bullet}>•</Text>
+                        <Text style={styles.bulletText}>Collaborate cross-functionally to align volume projections with commercial strategy and market dynamics.</Text>
+                    </View>
+                </View>
+
+                {/* Job 2 */}
+                <View style={styles.jobContainer}>
+                    <View style={styles.jobHeader}>
+                        <View>
                             <Text style={styles.jobTitle}>Marketing Materials Project Manager</Text>
                             <Text style={styles.company}>British American Tobacco | Accenture Acquisition</Text>
                         </View>
-                        <Text style={styles.date}>Feb 2025 - Current</Text>
+                        <Text style={styles.date}>Feb 2025 - Feb 2026</Text>
                     </View>
                     <View style={styles.bulletPoint}>
                         <Text style={styles.bullet}>•</Text>
@@ -171,7 +194,7 @@ const CVDocument = () => (
                     </View>
                 </View>
 
-                {/* Job 2 */}
+                {/* Job 3 */}
                 <View style={styles.jobContainer}>
                     <View style={styles.jobHeader}>
                         <View>
