@@ -1,52 +1,63 @@
-import { Mail, Linkedin, Briefcase, Code2, Sparkles, Download } from 'lucide-react';
+import { Mail, Linkedin, Briefcase, Code2, Download, User, Zap } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVDocument from './components/CVDocument';
 import Navigation from './components/Navigation';
+import { GlowingEffect } from './components/ui/glowing-effect';
+import { GradientButton } from './components/ui/gradient-button';
+import { Component as RotatingText } from './components/ui/rotating-text';
+import { Typewriter } from './components/ui/typewriter';
 
 function App() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-50/30 to-slate-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
-            {/* Decorative Background Shapes */}
-            <div className="fixed inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-20 right-10 w-72 h-72 bg-blue-200/20 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute top-96 left-10 w-96 h-96 bg-slate-200/20 dark:bg-slate-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gray-200/20 dark:bg-gray-500/5 rounded-full blur-3xl"></div>
-
-                {/* Geometric Shapes */}
-                <div className="absolute top-40 left-20 w-16 h-16 border-2 border-blue-300/30 dark:border-blue-500/20 rotate-12"></div>
-                <div className="absolute top-1/3 right-32 w-12 h-12 border-2 border-slate-300/30 dark:border-slate-500/20 rotate-45"></div>
-                <div className="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-gray-300/30 dark:border-gray-500/20 -rotate-12"></div>
-            </div>
 
             {/* Navigation */}
             <Navigation />
 
-            <main className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 space-y-20">
+            {/* ── Hero ── */}
+            <section
+                id="about"
+                className="relative w-full h-screen bg-slate-950 flex flex-col items-center justify-center pt-16 pb-32"
+            >
+                <div className="flex flex-col items-center px-4 text-center gap-4">
+                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+                        Edgar Martínez
+                    </h1>
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-blue-400">
+                        <RotatingText
+                            words={["Demand Planning Executive", "Data Analytics Expert", "Digital Transformation Leader"]}
+                            mode="slide"
+                            interval={3000}
+                        />
+                    </h2>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-40 pointer-events-none bg-gradient-to-t from-gray-900 to-transparent" />
+            </section>
 
-                {/* Hero/About Section */}
-                <section id="about" className="scroll-mt-20">
-                    <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                        {/* Decorative corner accent */}
+            <main className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-20 pt-20">
+
+                {/* About card */}
+                <section className="scroll-mt-20">
+                    <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                        <GlowingEffect disabled={false} spread={60} blur={0} borderWidth={2} />
                         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-slate-600/10 rounded-bl-full"></div>
-
                         <div className="relative space-y-6">
-                            <div className="inline-block">
-                                <div className="flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full">
-                                    <Briefcase className="w-4 h-4" />
-                                    <span>Available for Opportunities</span>
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                    <User className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                                 </div>
+                                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">About</h3>
                             </div>
-
-                            <div className="space-y-3">
-                                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-slate-800 to-gray-900 dark:from-white dark:via-slate-200 dark:to-gray-200 bg-clip-text text-transparent pb-1">
-                                    Demand Planning Executive
-                                </h2>
-                                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                                    Demand planning professional with a strong background in data analytics and digital transformation, developing multi-year volume forecasts and scenario simulations for multiple US brands to support strategic decision-making across senior leadership.
-                                </p>
-                            </div>
-
-                            <div className="flex flex-wrap gap-4 pt-4">
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+                                <Typewriter
+                                    text="Demand planning professional with a strong background in data analytics and digital transformation, developing multi-year volume forecasts and scenario simulations for multiple US brands to support strategic decision-making across senior leadership."
+                                    speed={18}
+                                    loop={false}
+                                    showCursor={false}
+                                    initialDelay={400}
+                                />
+                            </p>
+                            <div className="flex flex-wrap gap-4 pt-2">
                                 <a href="mailto:adrian_0698@hotmail.com" target="_self" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
                                     <Mail className="w-4 h-4" />
                                     <span className="font-medium">Email Me</span>
@@ -81,15 +92,21 @@ function App() {
 
                 {/* Digital Transformation Section */}
                 <section id="digital-transformation" className="scroll-mt-20">
-                    <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
+                    <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
+                        <GlowingEffect disabled={false} spread={40} blur={0} borderWidth={2} />
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="p-2 bg-gradient-to-br from-blue-700 to-slate-700 rounded-lg">
-                                <Sparkles className="w-6 h-6 text-white" />
+                            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                             </div>
                             <h3 className="text-3xl font-bold text-gray-900 dark:text-white">Digital Transformation Background</h3>
                         </div>
                         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Driving digital transformation through data-driven insights and automation. Specialized in implementing comprehensive data solutions through <strong className="text-gray-900 dark:text-white">Excel automations (Macros, Power Query)</strong> and <strong className="text-gray-900 dark:text-white">Power BI</strong> dashboards. Expert in transforming business processes with <strong className="text-gray-900 dark:text-white">automated workflows using Power Automate</strong> and <strong className="text-gray-900 dark:text-white">Python APIs</strong>. Proven track record of leveraging AI and advanced analytics to optimize business operations, streamline workflows, and deliver measurable results across marketing and operations.
+                            <Typewriter
+                                text="Driving digital transformation through data-driven insights and automation. Specialized in implementing comprehensive data solutions through Excel automations (Macros, Power Query) and Power BI dashboards. Expert in transforming business processes with automated workflows using Power Automate and Python APIs. Proven track record of leveraging AI and advanced analytics to optimize business operations, streamline workflows, and deliver measurable results across marketing and operations."
+                                speed={14}
+                                loop={false}
+                                showCursor={false}
+                            />
                         </p>
                     </div>
                 </section>
@@ -112,7 +129,8 @@ function App() {
 
                     <div className="space-y-6">
                         {/* Job 1 */}
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
+                            <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                 <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco | Accenture</h4>
                                 <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">February 2026 - Current</span>
@@ -121,21 +139,22 @@ function App() {
                             <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Develop and manage demand forecasts for multiple US brands, providing insights on product volume behavior from the current year and up to 5 years ahead.</span>
+                                    <span><Typewriter text="Develop and manage demand forecasts for multiple US brands, providing insights on product volume behavior from the current year and up to 5 years ahead." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Deliver scenario simulation analyses and strategic insights to Sr Directors across multiple areas and markets to support long-term business planning.</span>
+                                    <span><Typewriter text="Deliver scenario simulation analyses and strategic insights to Sr Directors across multiple areas and markets to support long-term business planning." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Collaborate cross-functionally to align volume projections with commercial strategy and market dynamics.</span>
+                                    <span><Typewriter text="Collaborate cross-functionally to align volume projections with commercial strategy and market dynamics." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                             </ul>
                         </div>
 
                         {/* Job 2 */}
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
+                            <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                 <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco | Accenture Acquisition</h4>
                                 <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">February 2025 - February 2026</span>
@@ -144,29 +163,30 @@ function App() {
                             <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Responsible for the execution of POS marketing materials for the operations field with over 300K stores in North America.</span>
+                                    <span><Typewriter text="Responsible for the execution of POS marketing materials for the operations field with over 300K stores in North America." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Developed Power BI dashboards integrating Salesforce data to track field activity and material performance, delivering actionable insights for key stakeholders.</span>
+                                    <span><Typewriter text="Developed Power BI dashboards integrating Salesforce data to track field activity and material performance, delivering actionable insights for key stakeholders." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Successfully managed over 20 POS campaigns with an average project value of $250,000 US dollars.</span>
+                                    <span><Typewriter text="Successfully managed over 20 POS campaigns with an average project value of $250,000 US dollars." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Coordinating cross-functional teams with 6 different stakeholders.</span>
+                                    <span><Typewriter text="Coordinating cross-functional teams with 6 different stakeholders." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-blue-500 flex-shrink-0">▪</span>
-                                    <span>Managed timelines, asset approvals, and vendor deliverables while maintaining quality standards.</span>
+                                    <span><Typewriter text="Managed timelines, asset approvals, and vendor deliverables while maintaining quality standards." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                             </ul>
                         </div>
 
                         {/* Job 3 */}
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-slate-500 hover:shadow-xl transition-all">
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-slate-500 hover:shadow-xl transition-all">
+                            <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                 <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco</h4>
                                 <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">October 2023 - January 2025</span>
@@ -175,23 +195,23 @@ function App() {
                             <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                                 <li className="flex items-center gap-3">
                                     <span className="text-slate-500 flex-shrink-0">▪</span>
-                                    <span>Work Alongside the Operations Field to Support Regional and Strategic Accounts in the US.</span>
+                                    <span><Typewriter text="Work Alongside the Operations Field to Support Regional and Strategic Accounts in the US." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-slate-500 flex-shrink-0">▪</span>
-                                    <span>Improve Internal and External Business Operation Performance.</span>
+                                    <span><Typewriter text="Improve Internal and External Business Operation Performance." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-slate-500 flex-shrink-0">▪</span>
-                                    <span>Data Analysis and Insights using Power BI and Power Query.</span>
+                                    <span><Typewriter text="Data Analysis and Insights using Power BI and Power Query." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-slate-500 flex-shrink-0">▪</span>
-                                    <span>Execution of Mass Material Orders for the field.</span>
+                                    <span><Typewriter text="Execution of Mass Material Orders for the field." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <span className="text-slate-500 flex-shrink-0">▪</span>
-                                    <span>Warehouse Account Management.</span>
+                                    <span><Typewriter text="Warehouse Account Management." speed={20} loop={false} showCursor={false} /></span>
                                 </li>
                             </ul>
                         </div>
@@ -208,55 +228,62 @@ function App() {
                 {/* Skills Section */}
                 <section id="skills" className="scroll-mt-20 space-y-8">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-slate-100 dark:bg-slate-900/30 rounded-lg">
-                            <Code2 className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+                        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                            <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         </div>
                         <h3 className="text-3xl font-bold text-gray-900 dark:text-white">Skills</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all">
+                        {/* Digital Transformation & Data Analytics */}
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all">
+                            <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
                                 <div className="w-1 h-6 bg-gradient-to-b from-blue-700 to-slate-700 rounded-full"></div>
                                 Digital Transformation & Data Analytics
                             </h5>
                             <div className="flex flex-wrap gap-2">
-                                <span className="px-4 py-2 bg-gradient-to-r from-blue-700 to-slate-700 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">Artificial Intelligence (AI)</span>
-                                <span className="px-4 py-2 bg-gradient-to-r from-blue-700 to-slate-700 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">Python</span>
-                                <span className="px-4 py-2 bg-gradient-to-r from-blue-700 to-slate-700 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">Power BI</span>
-                                <span className="px-4 py-2 bg-gradient-to-r from-blue-700 to-slate-700 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">Power Query</span>
-                                <span className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">SQL</span>
-                                <span className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">Data Analysis</span>
-                                <span className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">Excel Automation</span>
+                                {["Artificial Intelligence (AI)", "Python", "Power BI", "Power Query", "SQL", "Data Analysis", "Excel Automation"].map((skill) => (
+                                    <GradientButton key={skill} type="button" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
+                                        {skill}
+                                    </GradientButton>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all">
+                        {/* Business Tools & Platforms */}
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all">
+                            <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
                                 <div className="w-1 h-6 bg-gradient-to-b from-slate-600 to-gray-600 rounded-full"></div>
                                 Business Tools & Platforms
                             </h5>
                             <div className="flex flex-wrap gap-2">
-                                <span className="px-4 py-2 bg-gradient-to-r from-slate-600 to-gray-600 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">Salesforce</span>
-                                <span className="px-4 py-2 bg-gradient-to-r from-slate-600 to-gray-600 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">SAP</span>
-                                <span className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">Project Management</span>
-                                <span className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">Process Automation</span>
+                                {["Salesforce", "SAP", "Project Management", "Process Automation"].map((skill) => (
+                                    <GradientButton key={skill} type="button" variant="variant" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
+                                        {skill}
+                                    </GradientButton>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all md:col-span-2">
+                        {/* Languages */}
+                        <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all md:col-span-2">
+                            <GlowingEffect disabled={false} spread={40} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
                                 <div className="w-1 h-6 bg-gradient-to-b from-gray-600 to-slate-800 rounded-full"></div>
                                 Languages
                             </h5>
                             <div className="flex flex-wrap gap-2">
-                                <span className="px-4 py-2 bg-gradient-to-r from-gray-600 to-slate-700 text-white rounded-lg text-sm font-medium shadow-md">English (C2)</span>
-                                <span className="px-4 py-2 bg-gradient-to-r from-slate-700 to-gray-800 text-white rounded-lg text-sm font-medium shadow-md">Spanish (Native)</span>
+                                {["English (C2)", "Spanish (Native)"].map((lang) => (
+                                    <GradientButton key={lang} type="button" variant="variant" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
+                                        {lang}
+                                    </GradientButton>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
-
 
             </main>
 
