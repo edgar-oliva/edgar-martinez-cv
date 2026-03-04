@@ -39,10 +39,10 @@ function App() {
 
                             <div className="space-y-3">
                                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-slate-800 to-gray-900 dark:from-white dark:via-slate-200 dark:to-gray-200 bg-clip-text text-transparent pb-1">
-                                    Marketing Materials Project Manager
+                                    Demand Planning Executive
                                 </h2>
                                 <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                                    Project manager with a strong background in digital transformation and data solutions, managing end-to-end production of POS marketing materials across digital and print channels for North America.
+                                    Demand planning professional with a strong background in data analytics and digital transformation, developing multi-year volume forecasts and scenario simulations for multiple US brands to support strategic decision-making across senior leadership.
                                 </p>
                             </div>
 
@@ -114,8 +114,31 @@ function App() {
                         {/* Job 1 */}
                         <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
+                                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco | Accenture</h4>
+                                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">February 2026 - Current</span>
+                            </div>
+                            <div className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4 italic">Demand Planning Executive</div>
+                            <ul className="space-y-3 text-gray-600 dark:text-gray-400">
+                                <li className="flex items-center gap-3">
+                                    <span className="text-blue-500 flex-shrink-0">▪</span>
+                                    <span>Develop and manage demand forecasts for multiple US brands, providing insights on product volume behavior from the current year and up to 5 years ahead.</span>
+                                </li>
+                                <li className="flex items-center gap-3">
+                                    <span className="text-blue-500 flex-shrink-0">▪</span>
+                                    <span>Deliver scenario simulation analyses and strategic insights to Sr Directors across multiple areas and markets to support long-term business planning.</span>
+                                </li>
+                                <li className="flex items-center gap-3">
+                                    <span className="text-blue-500 flex-shrink-0">▪</span>
+                                    <span>Collaborate cross-functionally to align volume projections with commercial strategy and market dynamics.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Job 2 */}
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-all">
+                            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                 <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco | Accenture Acquisition</h4>
-                                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">February 2025 - Current</span>
+                                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full mt-2 sm:mt-0">February 2025 - February 2026</span>
                             </div>
                             <div className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4 italic">Marketing Materials Project Manager</div>
                             <ul className="space-y-3 text-gray-600 dark:text-gray-400">
@@ -142,7 +165,7 @@ function App() {
                             </ul>
                         </div>
 
-                        {/* Job 2 */}
+                        {/* Job 3 */}
                         <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-slate-500 hover:shadow-xl transition-all">
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                 <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">British American Tobacco</h4>
