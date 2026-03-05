@@ -326,11 +326,13 @@ function App() {
                             </h5>
                             <motion.div className="flex flex-wrap gap-2" variants={stagger}>
                                 {['Artificial Intelligence (AI)', 'Python', 'Power BI', 'Power Query', 'SQL', 'Data Analysis', 'Excel Automation'].map((skill) => (
-                                    <motion.div key={skill} variants={fadeUp}>
-                                        <GradientButton type="button" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
-                                            {skill}
-                                        </GradientButton>
-                                    </motion.div>
+                                    <motion.span
+                                        key={skill}
+                                        variants={fadeUp}
+                                        className="px-3 py-1 text-sm font-medium rounded-md border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-400 transition-colors duration-150 cursor-default"
+                                    >
+                                        {skill}
+                                    </motion.span>
                                 ))}
                             </motion.div>
                         </motion.div>
@@ -346,12 +348,14 @@ function App() {
                                 Business Tools & Platforms
                             </h5>
                             <motion.div className="flex flex-wrap gap-2" variants={stagger}>
-                                {['Salesforce', 'SAP', 'Project Management', 'Process Automation'].map((skill) => (
-                                    <motion.div key={skill} variants={fadeUp}>
-                                        <GradientButton type="button" variant="variant" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
-                                            {skill}
-                                        </GradientButton>
-                                    </motion.div>
+                                {['Salesforce', 'SAP', 'Kinaxis', 'MicroStrategy'].map((skill) => (
+                                    <motion.span
+                                        key={skill}
+                                        variants={fadeUp}
+                                        className="px-3 py-1 text-sm font-medium rounded-md border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-400 transition-colors duration-150 cursor-default"
+                                    >
+                                        {skill}
+                                    </motion.span>
                                 ))}
                             </motion.div>
                         </motion.div>
@@ -368,11 +372,13 @@ function App() {
                             </h5>
                             <motion.div className="flex flex-wrap gap-2" variants={stagger}>
                                 {['English (C2)', 'Spanish (Native)'].map((lang) => (
-                                    <motion.div key={lang} variants={fadeUp}>
-                                        <GradientButton type="button" variant="variant" className="min-w-0 px-3 py-1.5 text-sm rounded-lg leading-normal font-medium">
-                                            {lang}
-                                        </GradientButton>
-                                    </motion.div>
+                                    <motion.span
+                                        key={lang}
+                                        variants={fadeUp}
+                                        className="px-3 py-1 text-sm font-medium rounded-md border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-400 transition-colors duration-150 cursor-default"
+                                    >
+                                        {lang}
+                                    </motion.span>
                                 ))}
                             </motion.div>
                         </motion.div>
