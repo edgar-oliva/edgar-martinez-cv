@@ -175,10 +175,10 @@ function App() {
                 <motion.section className="scroll-mt-20" {...sectionMotion}>
                     <motion.div
                         {...item}
-                        className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50"
+                        className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-2xl p-8 sm:p-10 shadow-xl dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06]"
                     >
                         <GlowingEffect disabled={false} spread={60} blur={0} borderWidth={2} />
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-slate-600/10 rounded-bl-full" />
+                        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full pointer-events-none" />
                         <div className="relative space-y-6">
                             <motion.div {...item} className="flex items-center gap-3 mb-2">
                                 <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
@@ -198,7 +198,7 @@ function App() {
                             <motion.div {...item} className="flex flex-wrap gap-4 pt-2">
                                 <a
                                     href="mailto:adrian_0698@hotmail.com"
-                                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all shadow-md hover:shadow-blue-500/25 hover:-translate-y-0.5 cursor-pointer font-medium"
                                 >
                                     <Mail className="w-4 h-4" />
                                     <span className="font-medium">Email Me</span>
@@ -206,12 +206,12 @@ function App() {
                                 <PDFDownloadLink
                                     document={<CVDocument />}
                                     fileName="Edgar_Martinez_CV.pdf"
-                                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 hover:-translate-y-0.5 cursor-pointer font-medium"
                                 >
                                     {({ loading }) => (
                                         <>
                                             <Download className="w-4 h-4" />
-                                            <span className="font-medium">{loading ? 'Loading...' : 'Download CV'}</span>
+                                            <span>{loading ? 'Loading...' : 'Download CV'}</span>
                                         </>
                                     )}
                                 </PDFDownloadLink>
@@ -219,7 +219,7 @@ function App() {
                                     href="https://www.linkedin.com/in/edgar-mart%C3%ADnez-oliva-1ba46b225/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 hover:-translate-y-0.5 cursor-pointer font-medium"
                                 >
                                     <Linkedin className="w-4 h-4" />
                                     <span>LinkedIn</span>
@@ -235,7 +235,7 @@ function App() {
                 <motion.section id="digital-transformation" className="scroll-mt-20" {...sectionMotion}>
                     <motion.div
                         {...item}
-                        className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50"
+                        className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-2xl p-8 sm:p-10 shadow-xl dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06]"
                     >
                         <GlowingEffect disabled={false} spread={40} blur={0} borderWidth={2} />
                         <motion.div {...item} className="flex items-center gap-3 mb-6">
@@ -266,10 +266,9 @@ function App() {
                             <motion.div
                                 key={idx}
                                 {...item}
-                                className={`relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg border-l-4 ${
-                                    exp.accent === 'blue' ? 'border-blue-500' : 'border-slate-500'
-                                } hover:shadow-xl transition-shadow`}
+                                className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-xl p-6 sm:p-8 shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06] hover:shadow-xl transition-shadow overflow-hidden"
                             >
+                                <div className={`absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-gradient-to-r ${exp.accent === 'blue' ? 'from-blue-500/70' : 'from-slate-400/70'} to-transparent`} />
                                 <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
                                     <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{exp.company}</h4>
@@ -318,7 +317,7 @@ function App() {
                         {/* Digital Transformation & Data Analytics */}
                         <motion.div
                             {...item}
-                            className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-shadow"
+                            className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-xl p-6 shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06] hover:shadow-xl transition-shadow"
                         >
                             <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
@@ -339,7 +338,7 @@ function App() {
                         {/* Business Tools & Platforms */}
                         <motion.div
                             {...item}
-                            className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-shadow"
+                            className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-xl p-6 shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06] hover:shadow-xl transition-shadow"
                         >
                             <GlowingEffect disabled={false} spread={30} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
@@ -360,7 +359,7 @@ function App() {
                         {/* Languages */}
                         <motion.div
                             {...item}
-                            className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-shadow md:col-span-2"
+                            className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-xl p-6 shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-white/[0.06] hover:shadow-xl transition-shadow md:col-span-2"
                         >
                             <GlowingEffect disabled={false} spread={40} blur={0} borderWidth={1} />
                             <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
