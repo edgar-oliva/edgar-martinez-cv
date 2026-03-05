@@ -107,7 +107,7 @@ function App() {
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4 px-4 w-full max-w-6xl mx-auto">
                     {/* Text content */}
                     <motion.div
-                        className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 flex-1"
+                        className="flex flex-col items-center text-center gap-4 flex-1"
                         initial={{ opacity: 0, y: 28 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -175,7 +175,7 @@ function App() {
                 <motion.section className="scroll-mt-20" {...sectionMotion}>
                     <motion.div
                         {...item}
-                        className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+                        className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-xl border border-gray-200/50 dark:border-gray-700/50"
                     >
                         <GlowingEffect disabled={false} spread={60} blur={0} borderWidth={2} />
                         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-slate-600/10 rounded-bl-full" />
@@ -186,7 +186,7 @@ function App() {
                                 </div>
                                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white">About</h3>
                             </motion.div>
-                            <motion.p {...item} className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+                            <motion.p {...item} className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <Typewriter
                                     text="Demand planning professional with a strong background in data analytics and digital transformation, developing multi-year volume forecasts and scenario simulations for multiple US brands to support strategic decision-making across senior leadership."
                                     speed={18}
