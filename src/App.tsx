@@ -4,7 +4,6 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVDocument from './components/CVDocument';
 import Navigation from './components/Navigation';
 import { GlowingEffect } from './components/ui/glowing-effect';
-import { GradientButton } from './components/ui/gradient-button';
 import { Component as RotatingText } from './components/ui/rotating-text';
 import { Typewriter } from './components/ui/typewriter';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
