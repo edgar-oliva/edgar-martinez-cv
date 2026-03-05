@@ -7,6 +7,7 @@ import { GlowingEffect } from './components/ui/glowing-effect';
 import { GradientButton } from './components/ui/gradient-button';
 import { Component as RotatingText } from './components/ui/rotating-text';
 import { Typewriter } from './components/ui/typewriter';
+import { InteractiveGlobe } from './components/ui/interactive-globe';
 
 // ── Animation variants ──────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -101,30 +102,50 @@ function App() {
             {/* ── Hero ─────────────────────────────────────────────────────── */}
             <section
                 id="about"
-                className="relative w-full h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 flex flex-col items-center justify-center pt-16 pb-32"
+                className="relative w-full h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 flex items-center justify-center pt-16 pb-32"
             >
-                <motion.div
-                    className="flex flex-col items-center px-4 text-center gap-4"
-                    initial={{ opacity: 0, y: 28 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                >
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
-                        Edgar Martínez
-                    </h1>
-                    <motion.h2
-                        className="text-2xl sm:text-3xl font-semibold text-blue-600 dark:text-blue-400"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.6 }}
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4 px-4 w-full max-w-6xl mx-auto">
+                    {/* Text content */}
+                    <motion.div
+                        className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 flex-1"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
                     >
-                        <RotatingText
-                            words={['Demand Planning Executive', 'Data Analytics', 'Digital Transformation Leader']}
-                            mode="slide"
-                            interval={3000}
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
+                            Edgar Martínez
+                        </h1>
+                        <motion.h2
+                            className="text-2xl sm:text-3xl font-semibold text-blue-600 dark:text-blue-400"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                        >
+                            <RotatingText
+                                words={['Demand Planning Executive', 'Data Analytics', 'Digital Transformation Leader']}
+                                mode="slide"
+                                interval={3000}
+                            />
+                        </motion.h2>
+                    </motion.div>
+
+                    {/* Interactive Globe */}
+                    <motion.div
+                        className="flex-shrink-0"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3, duration: 1, ease: 'easeOut' }}
+                    >
+                        <InteractiveGlobe
+                            size={420}
+                            className="hidden sm:block"
                         />
-                    </motion.h2>
-                </motion.div>
+                        <InteractiveGlobe
+                            size={280}
+                            className="block sm:hidden"
+                        />
+                    </motion.div>
+                </div>
 
                 {/* Scroll indicator */}
                 {!shouldReduceMotion && (
