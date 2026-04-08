@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { useState } from 'react';
 import { Mail, Linkedin, Briefcase, Code2, Download, User, Zap, ChevronDown } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVDocument from './components/CVDocument';
@@ -78,8 +79,45 @@ function SectionDivider() {
 }
 
 // ── App ──────────────────────────────────────────────────────────────────────
+// ── Flip text animation (letter-by-letter reveal on hover) ──────────────────
+const FlipText = ({ text, isHovered, hoverColor = '#FFFFFF' }: { text: string; isHovered: boolean; hoverColor?: string }) => (
+    <span style={{ position: 'relative', display: 'inline-block', overflow: 'hidden', verticalAlign: 'top' }}>
+        <span style={{ display: 'block' }}>
+            {text.split('').map((letter, i) => (
+                <span
+                    key={`o-${i}`}
+                    style={{
+                        display: 'inline-block',
+                        transform: isHovered ? 'translateY(-100%)' : 'translateY(0)',
+                        transition: `transform 0.25s ease-in-out ${0.025 * i}s`,
+                    }}
+                >
+                    {letter === ' ' ? '\u00A0' : letter}
+                </span>
+            ))}
+        </span>
+        <span style={{ position: 'absolute', top: 0, left: 0, right: 0, display: 'block', color: hoverColor }}>
+            {text.split('').map((letter, i) => (
+                <span
+                    key={`h-${i}`}
+                    style={{
+                        display: 'inline-block',
+                        transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
+                        transition: `transform 0.25s ease-in-out ${0.025 * i}s`,
+                    }}
+                >
+                    {letter === ' ' ? '\u00A0' : letter}
+                </span>
+            ))}
+        </span>
+    </span>
+);
+
 function App() {
     const shouldReduceMotion = useReducedMotion();
+    const [emailHovered, setEmailHovered] = useState(false);
+    const [cvHovered, setCvHovered] = useState(false);
+    const [linkedinHovered, setLinkedinHovered] = useState(false);
 
     // When the user prefers reduced motion, skip entrance animations entirely
     const sectionMotion = shouldReduceMotion
@@ -197,20 +235,24 @@ function App() {
                             <motion.div {...item} className="flex flex-wrap gap-4 pt-2">
                                 <a
                                     href="mailto:adrian_0698@hotmail.com"
-                                    className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all shadow-md hover:shadow-blue-500/25 hover:-translate-y-0.5 cursor-pointer font-medium"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all shadow-md hover:shadow-blue-500/25 cursor-pointer font-medium"
+                                    onMouseEnter={() => setEmailHovered(true)}
+                                    onMouseLeave={() => setEmailHovered(false)}
                                 >
                                     <Mail className="w-4 h-4" />
-                                    <span className="font-medium">Email Me</span>
+                                    <FlipText text="Email Me" isHovered={emailHovered} />
                                 </a>
                                 <PDFDownloadLink
                                     document={<CVDocument />}
                                     fileName="Edgar_Martinez_CV.pdf"
-                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 hover:-translate-y-0.5 cursor-pointer font-medium"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 cursor-pointer font-medium"
+                                    onMouseEnter={() => setCvHovered(true)}
+                                    onMouseLeave={() => setCvHovered(false)}
                                 >
                                     {({ loading }) => (
                                         <>
                                             <Download className="w-4 h-4" />
-                                            <span>{loading ? 'Loading...' : 'Download CV'}</span>
+                                            <FlipText text={loading ? 'Loading...' : 'Download CV'} isHovered={cvHovered} />
                                         </>
                                     )}
                                 </PDFDownloadLink>
@@ -218,10 +260,12 @@ function App() {
                                     href="https://www.linkedin.com/in/edgar-mart%C3%ADnez-oliva-1ba46b225/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 hover:-translate-y-0.5 cursor-pointer font-medium"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-transparent border border-blue-400/30 text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200 hover:border-blue-400/70 hover:text-blue-400 hover:bg-blue-400/5 cursor-pointer font-medium"
+                                    onMouseEnter={() => setLinkedinHovered(true)}
+                                    onMouseLeave={() => setLinkedinHovered(false)}
                                 >
                                     <Linkedin className="w-4 h-4" />
-                                    <span>LinkedIn</span>
+                                    <FlipText text="LinkedIn" isHovered={linkedinHovered} />
                                 </a>
                             </motion.div>
                         </div>
